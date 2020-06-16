@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="memberns">
+
+	<!-- 회원가입 -->
+	<insert id="insert" parameterType="member">
+		insert into member22 values(#{id},#{password})
+	</insert>
+	
+	<!-- 회원인증 -->
+	<select id="select" parameterType="member" resultType="member">
+		select * from member22 where id = #{id} and password = #{password}
+	</select>
+	
+	<!-- 회원목로 -->
+	<select id="list" resultType="member">
+		select * from member22
+	</select>
+	
+	<!-- 회원 정보 -->
+	<select id="member" parameterType="String" resultType="member">
+		select * from member22 where id = #{id}
+	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="update" parameterType="member">
+		update member22 set password = #{password} where id = #{id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="delete" parameterType="String">
+		delete from member22 where id = #{id}
+	</delete>
+<!-- 	<select id="getSomething" parameterType="int" resultType="#package.#modelname">
+		SELECT
+		columnname1,
+		columnname2,
+		columnname3
+		FROM tablename1
+		WHERE columnname1 = #{value}
+	</select>
+
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+
+	<insert id="insertSomething" parameterType="#modelname">
+		INSERT INTO tablename1 (columnname1, columnname2, columnname3)
+		VALUES(#{value1},#{value2},#{value3})
+	</insert>
+
+	<update id="updateSomething" parameterType="#modelname">
+		UPDATE tablename1
+		SET
+		columnname1=#{param1}
+		WHERE
+		columnname2 = #{param2}
+	</update>
+
+	<delete id="deleteSomething" parameterType="int">
+		DELETE FROM tablename1 WHERE
+		columnname1 = #{param1}
+	</delete> -->
+
+</mapper>
